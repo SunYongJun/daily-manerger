@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">文件下载</h3>
+</div>
+<div class="modal-body form-horizontal" id="modal-body">
+    <div class="form-group" ng-repeat="file in $ctrl.resolve.files">
+        <div class="col-md-offset-1 col-md-4">
+            <a href="/api/download?id={{ file.id }}&access_token={{ $ctrl.resolve.access_token }}">{{ file.name }}</a>
+        </div>
+        <div class="col-md-2">
+            {{ file.user.name }}
+        </div>
+        <div class="col-md-3">
+            {{ file.date*1000 | date: 'yyyy-MM-dd HH:mm:ss' }}
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">返回</button>
+</div>

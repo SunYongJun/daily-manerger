@@ -1,0 +1,46 @@
+<nav-header></nav-header>
+<div class="container">
+    <div class="row">
+
+        <div class="breadcrumb">
+                <button class="btn btn-sm btn-warning" ng-click="create()">添加</button>
+                <button class="btn btn-sm btn-danger" ng-click="delete()">删除</button>
+            <li class="pull-right">
+                <a href="#user" class="btn btn-link">用户管理</a>
+            </li>
+        </div>
+        <div>
+            <table class="table table-info table-bordered">
+                <thead>
+                <tr>
+                    <th>
+                        <label>
+                            <input type="checkbox" ng-model="master" ng-click="all(master)">
+                            编号
+                        </label>
+                    </th>
+                    <th>名称</th>
+                    <th>用户</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="v in groups">
+                    <td>
+                        <label>
+                            <input type="checkbox" ng-checked="master" ng-model="itemMaster" ng-click="check(v.id,itemMaster)"> {{ v.id }}
+                        </label>
+                    </td>
+                    <td> {{ v.name }} </td>
+                    <td> <span class="td-item" ng-repeat="user in v.users">{{ user.name }}</span> </td>
+                    <td>
+                        <a ng-click="edit(v)">修改</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+

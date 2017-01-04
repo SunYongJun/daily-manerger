@@ -1,0 +1,58 @@
+<nav-header></nav-header>
+<div class="container">
+    <div class="row">
+        <div class="breadcrumb">
+            <li class="pull-right">
+                <a href="#group">管理权限组</a>
+            </li>
+            <li>
+                用户管理
+            </li>
+        </div>
+        <div>
+            <div class="btn-group right">
+                <a class="btn btn-danger" href="/api/users/export/?week={{ offset-1 }}&access_token={{ access_token }}">导出组员上周日报</a>
+                <a class="btn btn-danger" href="/api/users/export/?week={{ offset }}&access_token={{ access_token }}">导出组员本周日报</a>
+            </div>
+        </div>
+        <div>
+            <table class="table table-info table-bordered">
+                <thead>
+                <tr>
+
+                    <th>姓名</th>
+                    <th>所属组</th>
+                    <th>手机</th>
+                    <th>
+                        <i class="glyphicon glyphicon-hand-left" ng-click="getMaster(week-1)"></i>
+                        <span ng-show="week >= 0">填报率</span>
+                        <span ng-show="week < 0">
+                             ( {{ week | weekToSunday }} ~ {{ week | weekToSaturday }} )
+                            <i class="glyphicon glyphicon-hand-right" ng-click="getMaster(week+1)" ng-disabled="week > 0"></i>
+                        </span>
+
+                    </th>
+                    <th>权限</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in users">
+
+                    <td> {{ user.name }} </td>
+                    <td> {{ user.email }}  </td>
+                    <td> {{ user.mobile }}  </td>
+                    <td> {{ user.dailies | rate }} </td>
+                    <td> <span ng-show="(user.user_group == null)">组员</span>{{ user.user_group.name }} </td>
+                    <td>
+                        <a ng-click="showDaily(user)">查看日报</a>
+                        <a ng-click="auth(user)">分配权限</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+

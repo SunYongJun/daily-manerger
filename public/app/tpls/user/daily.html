@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{ $ctrl.resolve.user.name }} 的日报</h3>
+</div>
+<div class="modal-body form-horizontal" id="modal-body">
+    <div class="breadcrumb">
+        <div>
+            <div class="btn-group btn-group-sm right" data-toggle="buttons">
+                <label class="btn  btn-info" ng-click="$ctrl.prevWeek($ctrl.offset-1)">
+                    <input type="radio" name="options" > 向上一周
+                </label>
+                <label class="btn  btn-info" ng-click="$ctrl.nextWeek($ctrl.offset+1)" ng-disabled="$ctrl.offset>=0">
+                    <input type="radio" name="options" > 向下一周
+                </label>
+                <label class="btn btn-info active" ng-click="$ctrl.currentWeek(0)">
+                    <input type="radio" name="options"> 回到本周
+                </label>
+
+            </div>
+            <div class="pull-right">
+                <a class="btn btn-sm btn-danger" href="/api/excel/export?week={{ $ctrl.offset }}&access_token={{ $ctrl.resolve.access_token }}">导 出</a>
+            </div>
+        </div>
+    </div>
+
+    <div >
+        <table class="table table-info table-bordered">
+            <caption>该周填报率 {{ $ctrl.resolve.dailies | rate }}</caption>
+            <thead>
+            <tr>
+                <th>日期</th>
+                <th>上午</th>
+                <th>下午</th>
+                <th>晚上</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="(k,daily) in $ctrl.resolve.dailies">
+                <td><div>{{ daily.date }}({{ $ctrl.week[k] }})</div></td>
+                <td><div>{{ daily.am }}</div></td>
+                <td><div>{{ daily.mm }}</div></td>
+                <td><div>{{ daily.pm }}</div></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">返回</button>
+</div>

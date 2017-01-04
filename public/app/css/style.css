@@ -1,0 +1,103 @@
+html,body{
+	height:100%;
+	font-size:12px;
+}
+body{
+	background: #f1f1f1;
+}
+.panel-login{
+	margin-top:15%;
+}
+.panel-info,.table-info{
+	margin-top:15px;
+}
+.panel-info{
+	height:80px;
+	padding-left: 30%;
+	background-repeat: no-repeat;
+	background-position: 10% 50%;
+}
+.panel-group:first-child > .panel-info{
+	background-image: url('../images/name.png');
+}
+.panel-group:nth-child(2) > .panel-info{
+	background-image: url('../images/company.png');
+}
+.panel-group:nth-child(3) > .panel-info{
+	background-image: url('../images/post.png');
+}
+.panel-group:last-child > .panel-info{
+	background-image: url('../images/role.png');
+}
+.user-title,.user-info{
+	height:25px;
+	line-height: 25px;
+}
+.user-info{
+	font-size: 14px;
+}
+
+.breadcrumb{
+	background: #d2d2d2;
+}
+
+.btn-info,.btn-warning,.btn-success,.btn-danger{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+*{
+	outline: medium none !important;
+}
+
+.table-info th:first-child{
+	width:140px;
+}
+
+.table-info thead{
+	background: #a40035;
+	color:white;
+}
+.table-info tbody{
+	background: white ;
+}
+.table-info{
+	table-layout:fixed;
+	word-break:break-all;
+}
+.table-info td:first-child{
+	vertical-align: middle;
+}
+.table-info td>div{
+	height:50px;
+	overflow: hidden;
+}
+
+.navbar{
+	background: #3d3d47 url('../images/logo.png') no-repeat 15%;
+	background-size: 45% auto;
+	height: 60px;
+	padding-right: 10%;
+}
+.navbar .nav-logout{
+	height:60px;
+	line-height: 60px;
+}
+.navbar .nav-logout a{
+	color:white;
+	font-size: 14px;
+}
+
+.td-item{
+	padding:0 10px;
+}
+
+table label{
+	display: inline;
+	font-weight: normal;
+	margin:0;
+}
+
+[ng-click]{
+	cursor: pointer;
+}

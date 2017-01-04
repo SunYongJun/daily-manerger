@@ -1,0 +1,54 @@
+<div id="app-layout" >
+    <div id="title">
+        <img src="../app/tpls/pic/login_head.png">
+    </div>
+    <div class="container" style='background: url("../app/tpls/pic/login_bak.png") no-repeat 0px 0px;'>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default panel-login" style="margin: 40px auto; padding: 40px; width: 60%;">
+                    <div class="panel-body">
+                        <form name="Login" class="form-horizontal ng-pristine ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength" role="form">
+                            <div class="form-group" ng-class="{'has-error' : error.mobile ,'': !error.mobile}">
+                                <!-- <label class="col-md-4 control-label"></label> -->
+
+                                <div class="col-md-10" style="margin-left: 20px;">
+                                    <input class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched" required="" type="number" maxlength="11" placeholder="手机"  minlength="11"  ng-model="user.mobile" style="border:1px solid red">
+                                    <span class="help-block">
+                                        <strong class="ng-binding">{{ error }}</strong>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <!-- <label class="col-md-4 control-label"></label> -->
+
+                                <div class="col-md-10" style="margin-left: 20px;">
+                                    <input class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" required="" type="password" placeholder="密码" ng-model="user.password" style="border:1px solid red">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input class="ng-pristine ng-untouched ng-valid ng-empty" type="checkbox" ng-model="user.remember"> 记住我
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button disabled="disabled"  class="btn btn-primary" type="button"  ng-click="login(user)" ng-disabled="Login.$invalid" style="background-color:red;border-color:red;col">
+                                        <i class="fa fa-btn fa-sign-in"></i>登 录
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
